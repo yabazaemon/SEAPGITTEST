@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+from ev3dev2.sound import Sound
+from ev3dev2.motor import MoveTank, OUTPUT_B, OUTPUT_C
+from ev3dev2.sensor.lego import TouchSensor
+
+
+tank_drive=MoveTank(OUTPUT_B, OUTPUT_C)
+ts=TouchSensor()
+snd=Sound()
+speed=20
+tank_drive.on(speed, speed)
+
+while ts.wait_for_pressed():
+    tank_drive.off()
+
+    if ts.wait_for_released(3000):
+        tank_drive.on(speed, speed)
+    else:
+        snd.beep()
+        break
