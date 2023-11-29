@@ -15,7 +15,7 @@ while ts.wait_for_pressed():
     tank_drive.off()
 
     if ts.wait_for_released(3000):
-        tank_drive.on(speed, speed)
+        tank_drive.on(speed, speed)00ppppppsoksaifjajfiohahzshoshheogj
     else:
         snd.beep()
         break
